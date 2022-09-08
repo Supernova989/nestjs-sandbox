@@ -15,7 +15,7 @@ export class AuthController {
     status: 204,
   })
   async register(@Body() body: RegisterRequestDto) {
-    await this.authService.register(body);
+    return await this.authService.register(body);
   }
 
   @Post('login')
@@ -26,6 +26,6 @@ export class AuthController {
     type: AuthenticateResponseDto,
   })
   async authenticate(@Body() body: AuthenticateRequestDto) {
-    await this.authService.authenticate(body);
+    return await this.authService.authenticate(body);
   }
 }

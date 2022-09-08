@@ -10,6 +10,12 @@ export class UserService {
   ) {}
 
   async getUserById(id: string) {
-    return this.userModel.findById<User>(id).exec();
+    return await this.userModel.findById<User>(id).exec();
+  }
+  async getUserByEmail(email: string) {
+    return await this.userModel.findOne<User>({ email: email }).exec();
+  }
+  async create(user: User) {
+    return await this.userModel.create(user);
   }
 }
