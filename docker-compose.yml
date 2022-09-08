@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  db:
+    image: mongo:4.2.21
+    volumes:
+      - data:/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    ports:
+      - 2717:27017
+    networks:
+      - app_network
+volumes:
+  data: {}
+networks:
+  app_network: {}
